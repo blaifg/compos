@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modal</title>
+  <meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="css/css.css">
+</head>
+<body style="padding: 2rem">
+
+	<button class="c-pnc-btn c-pnc-btn--primary" type="button"	data-toggle="modal"	data-target="#myModal"><span class="c-pnc-btn__txt">Modal Visor</span></button>
+
+
+<div id="myModal" data-temp-modal class="c-pnc-modal c-pnc-modal--full c-pnc-modal--visor" tabindex="-1" role="dialog">
+  <div class="c-pnc-modal__dialog">
+  <div class="[ c-pnc-modal__content ] [ o-fadeIn ]">
+    <div class="c-pnc-modal__header">
+      <h1 class="c-pnc-modal__tit">Validar documento</h1>
+      <button type="button" class="c-pnc-modal__close" data-dismiss="modal">
+        <svg role="img" class="o-icon" viewBox="0 0 24 24">
+          <title>Cerrar modal</title>
+          <path d="M17.73 6.255a.75.75 0 0 0-1.06 0L12 10.925l-4.67-4.67a.75.75 0 0 0-1.06 0l-.015.015a.75.75 0 0 0 0 1.06l4.67 4.67-4.67 4.67a.75.75 0 0 0 0 1.06l.015.015a.75.75 0 0 0 1.06 0l4.67-4.67 4.67 4.67a.75.75 0 0 0 1.06 0l.016-.015a.75.75 0 0 0 0-1.06L13.076 12l4.67-4.67a.75.75 0 0 0 0-1.06l-.016-.015Z"/>
+        </svg>
+      </button>
+    </div>
+      <div class="c-pnc-modal__body">
+       <iframe src="layout-home-grid.html" class="c-pnc-modal__visor"></iframe>
+      </div>
+    <div class="c-pnc-modal__footer">
+      <button class="c-pnc-btn c-pnc-btn--primary" type="button"><span class="c-pnc-btn__txt">Validar</span></button>
+      <button class="c-pnc-btn c-pnc-btn--tertiary" type="button" data-dismiss="modal"><span class="c-pnc-btn__txt">Cancelar</span></button>
+    </div>
+  </div>
+</div>
+</div>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+/*------------------------------------*\
+  #CSS
+\*------------------------------------*/
+
+/**
+ * https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+ * Los estilos están organizados siguiendo la metodología ITCSS.
+ * Una arquitectura que divide y organiza en diferentes capas los estilos, de menos a más especificidad.
+ */
+
+ @use "01-settings/index" as s;
+ @use "02-tools/index" as t;
+ @use "03-generic/generic";
+ @use "04-elements/elements";
+ @use "05-objects/objects";
+ @use "06-components/components";
+ @use "07-utilities/utilities";
+ @use "08-shame/shame";

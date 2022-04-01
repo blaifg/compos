@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Modales</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body style="padding: 2rem">
+
+  <button id="modal-tiny" class="c-pnc-btn c-pnc-btn--primary" type="button" data-toggle="modal"
+  data-target="#myModal"><span class="c-pnc-btn__txt">Modal Tiny</span></button>
+  
+<button id="modal-small" class="c-pnc-btn c-pnc-btn--primary" type="button" data-toggle="modal"
+  data-target="#myModal"><span class="c-pnc-btn__txt">Modal Small</span></button>
+
+  <button id="modal-reduced" class="c-pnc-btn c-pnc-btn--primary" type="button" data-toggle="modal"
+  data-target="#myModal"><span class="c-pnc-btn__txt">Modal Reduced</span></button>
+
+  <button class="c-pnc-btn c-pnc-btn--primary" type="button" data-toggle="modal"
+    data-target="#myModal"><span class="c-pnc-btn__txt">Modal Regular</span></button>
+
+  <button id="modal-full" class="c-pnc-btn c-pnc-btn--primary" type="button" data-toggle="modal"
+    data-target="#myModal"><span class="c-pnc-btn__txt">Modal Full</span></button>
+
+
+  <div id="myModal" data-temp-modal class="c-pnc-modal" tabindex="-1" role="dialog">
+    <div class="c-pnc-modal__dialog">
+      <div class="[ c-pnc-modal__content ] [ o-fadeIn ]">
+        <div class="c-pnc-modal__header">
+          <h1 class="c-pnc-modal__tit">Validar documento</h1>
+          <button type="button" class="c-pnc-modal__close" data-dismiss="modal" id="closeModal">
+            <svg role="img" class="o-icon" viewBox="0 0 24 24">
+              <title>Cerrar modal</title>
+              <path
+                d="M17.73 6.255a.75.75 0 0 0-1.06 0L12 10.925l-4.67-4.67a.75.75 0 0 0-1.06 0l-.015.015a.75.75 0 0 0 0 1.06l4.67 4.67-4.67 4.67a.75.75 0 0 0 0 1.06l.015.015a.75.75 0 0 0 1.06 0l4.67-4.67 4.67 4.67a.75.75 0 0 0 1.06 0l.016-.015a.75.75 0 0 0 0-1.06L13.076 12l4.67-4.67a.75.75 0 0 0 0-1.06l-.016-.015Z" />
+            </svg>
+          </button>
+        </div>
+        <div class="c-pnc-modal__body">
+          <p>box-sizing: border-box; is supported in the current versions of all major browsers. The less-commonly used
+            padding-box is only supported in Firefox at the moment. There’s more comprehensive information about browser
+            support in our box-sizing almanac entry.</p>
+          <p>box-sizing: border-box; is supported in the current versions of all major browsers. The less-commonly used
+            padding-box is only supported in Firefox at the moment. There’s more comprehensive information about browser
+            support in our box-sizing almanac entry.</p>
+          <p>box-sizing: border-box; is supported in the current versions of all major browsers. The less-commonly used
+            padding-box is only supported in Firefox at the moment. There’s more comprehensive information about browser
+            support in our box-sizing almanac entry.</p>
+          <p>box-sizing: border-box; is supported in the current versions of all major browsers. The less-commonly used
+            padding-box is only supported in Firefox at the moment. There’s more comprehensive information about browser
+            support in our box-sizing almanac entry.</p>
+          <p>box-sizing: border-box; is supported in the current versions of all major browsers. The less-commonly used
+            padding-box is only supported in Firefox at the moment. There’s more comprehensive information about browser
+            support in our box-sizing almanac entry.</p>
+          <p>box-sizing: border-box; is supported in the current versions of all major browsers. The less-commonly used
+            padding-box is only supported in Firefox at the moment. There’s more comprehensive information about browser
+            support in our box-sizing almanac entry.</p>
+        </div>
+        <div class="c-pnc-modal__footer">
+          <button class="c-pnc-btn c-pnc-btn--primary" type="button"><span class="c-pnc-btn__txt">Validar</span></button>
+          <button class="c-pnc-btn c-pnc-btn--tertiary" type="button" data-dismiss="modal"><span class="c-pnc-btn__txt">Cancelar</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+
+  <script>
+    let btnTiny = document.querySelector("#modal-tiny"),
+        btnSmall = document.querySelector("#modal-small"),
+        btnIncreased = document.querySelector("#modal-reduced"),
+        btnFull = document.querySelector("#modal-full"),
+        modal = document.querySelector("#myModal"),
+        close = document.querySelector("#closeModal");
+
+
+      btnTiny.addEventListener("click", function () {
+        modal.classList.add("c-pnc-modal--tiny");
+        closing("c-pnc-modal--tiny");
+      });
+
+      btnSmall.addEventListener("click", function () {
+        modal.classList.add("c-pnc-modal--small");
+        closing("c-pnc-modal--small");
+      });
+
+      btnIncreased.addEventListener("click", function () {
+        modal.classList.add("c-pnc-modal--reduced");
+        closing("c-pnc-modal--reduced");
+      });
+
+      btnFull.addEventListener("click", function () {
+        modal.classList.add("c-pnc-modal--full");
+        closing("c-pnc-modal--full");
+      });
+
+      
+      function closing(rico) {
+
+        close.addEventListener("click", function () {
+        modal.classList.remove(rico);
+      });
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>
