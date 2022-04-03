@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+
+    <style>
+      @font-face {
+        font-family: "Open Sans Regular";
+        src: url("css/fonts/OpenSans-Light.woff2") format("woff2"), url("fonts/OpenSans-Light.woff") format("woff");
+        font-display: swap;
+        font-weight: 300
+      }
+
+      @font-face {
+        font-family: "Open Sans Regular";
+        src: url("css/fonts/OpenSans-Regular.woff2") format("woff2"), url("fonts/OpenSans-Regular.woff") format("woff");
+        font-display: swap
+      }
+
+      @font-face {
+        font-family: "Open Sans Regular";
+        src: url("css/fonts/OpenSans-SemiBold.woff2") format("woff2"), url("fonts/OpenSans-SemiBold.woff") format("woff");
+        font-display: swap;
+        font-weight: 600
+      }
+
+      html,
+      body,
+      p,
+      ol,
+      ul,
+      li,
+      dl,
+      dt,
+      dd,
+      blockquote,
+      figure,
+      fieldset,
+      legend,
+      textarea,
+      pre,
+      iframe,
+      hr,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        padding: 0
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: 100%;
+        font-weight: normal
+      }
+
+      ul {
+        list-style: none
+      }
+
+      button,
+      input,
+      select {
+        margin: 0
+      }
+
+      html {
+        box-sizing: border-box
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit
+      }
+
+      img,
+      video {
+        height: auto;
+        max-width: 100%
+      }
+
+      iframe {
+        border: 0
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0
+      }
+
+      td,
+      th {
+        padding: 0
+      }
+
+      html {
+        -ms-overflow-style: scrollbar;
+        min-height: 100vh;
+        overflow-y: scroll;
+        overscroll-behavior: none
+      }
+
+      body {
+        -moz-osx-font-smoothing: grayscale;
+        -ms-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-family: "Open Sans Regular", Arial, sans-serif;
+        color: #4a4a4a;
+        line-height: 1.4
+      }
+
+      a {
+        color: currentColor;
+        text-decoration: none
+      }
+
+      button {
+        background-color: rgba(0, 0, 0, 0);
+        border: 0;
+        cursor: pointer;
+        font-size: inherit;
+        font-family: inherit;
+        padding: 0
+      }
+
+      button:focus:not(:focus-visible) {
+        outline: none
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0
+        }
+      }
+
+      .o-fadeIn {
+        animation: fade-in .15s ease-in
+      }
+
+      .o-icon {
+        display: block;
+        height: 1.5rem;
+        fill: #1976d2;
+        width: 1.5rem
+      }
+
+      .o-icon--white {
+        fill: #fff
+      }
+
+      .o-flow>*+* {
+        margin-top: 1rem
+      }
+
+      @media screen and (min-width: 48em) {
+        .o-flow>*+* {
+          margin-top: 1.5rem
+        }
+      }
+
+      @media screen and (max-width: 47.937em) {
+        .o-flow\@sm>*+* {
+          margin-top: 1rem
+        }
+      }
+
+      .o-media {
+        display: inline-grid;
+        column-gap: .5rem;
+        grid-template-columns: auto 1fr
+      }
+
+      .o-media--center {
+        align-items: center
+      }
+
+      .o-media--flip {
+        grid-template-columns: 1fr auto
+      }
+
+      .c-pnc-btn {
+        align-items: center;
+        border-radius: 4px;
+        color: #fff;
+        font-size: .875rem;
+        font-weight: 600;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        min-width: 8.75rem;
+        overflow: hidden;
+        padding: 0 .75rem;
+        text-align: center;
+        user-select: none;
+        vertical-align: bottom;
+        white-space: nowrap
+      }
+
+      .c-pnc-btn--primary {
+        background-color: #45c913
+      }
+
+      .c-pnc-btn--primary:hover {
+        background-color: #6ced3b
+      }
+
+      .c-pnc-btn--primary:active {
+        background-color: #2d820c
+      }
+
+      .c-pnc-btn--secondary {
+        background-color: #1976d2
+      }
+
+      .c-pnc-btn--secondary:hover {
+        background-color: #4d9cea
+      }
+
+      .c-pnc-btn--secondary:active {
+        background-color: #114f8d
+      }
+
+      .c-pnc-btn--tertiary {
+        background-color: #8d99a5
+      }
+
+      .c-pnc-btn--tertiary:hover {
+        background-color: #bfc8cf
+      }
+
+      .c-pnc-btn--tertiary:active {
+        background-color: #677583
+      }
+
+      .c-pnc-btn--sm {
+        height: 2rem;
+        line-height: 2rem
+      }
+
+      .c-pnc-btn--icon {
+        display: inline-grid;
+        grid-auto-flow: column;
+        column-gap: .25rem;
+        min-width: auto
+      }
+
+      .c-pnc-btn--iconRight .c-pnc-btn__icon {
+        order: 1
+      }
+
+      .c-pnc-btn--iconOnly {
+        min-width: auto;
+        padding: .5rem
+      }
+
+      .c-pnc-btn--iconOnly.c-pnc-btn--sm {
+        padding: .25rem
+      }
+
+      .c-pnc-btn:disabled {
+        background-color: #f3f4f6;
+        color: #bfc8cf;
+        pointer-events: none
+      }
+
+      .c-pnc-btn:disabled .o-icon {
+        fill: #bfc8cf
+      }
+
+      .c-pnc-btn:focus:not(:focus-visible) {
+        outline: none
+      }
+
+      .c-pnc-btn:focus-visible {
+        outline: 2px solid #354052
+      }
+
+      .c-pnc-box {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        position: relative
+      }
+
+      .c-pnc-box__txt {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center
+      }
+
+      .c-pnc-box__txt h2 {
+        font-weight: 700;
+        margin-bottom: 16px
+      }
+
+      .c-pnc-box__txt button {
+        margin-top: 16px
+      }
+
+      .c-pnc-box__figure {
+        color: #fff;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center
+      }
+
+      .c-pnc-box__figureTxt {
+        color: #fff;
+        padding: 2rem;
+        z-index: 1
+      }
+
+      .c-pnc-box__figureImg {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0
+      }
+
+      @media screen and (min-width: 48em) {
+        .c-pnc-box--row {
+          flex-direction: row
+        }
+
+        .c-pnc-box--row .c-pnc-box__txt {
+          flex: 3
+        }
+
+        .c-pnc-box--row .c-pnc-box__figure {
+          flex: 2
+        }
+
+        .c-pnc-box--row .c-pnc-box__figureImg {
+          border-bottom-left-radius: 4px;
+          border-top-right-radius: 0
+        }
+      }
+
+      .c-pnc-box--onlyImg .c-pnc-box__figure {
+        height: 100%
+      }
+
+      .c-pnc-box--onlyImg .c-pnc-box__figureImg {
+        border-radius: 4px
+      }
+
+      .c-pnc-breadcrumb {
+        align-items: center;
+        display: flex;
+        justify-content: space-between
+      }
+
+      .c-pnc-breadcrumb__list {
+        align-items: center;
+        color: #1976d2;
+        display: flex;
+        font-size: .8125rem;
+        font-weight: 600;
+        list-style: none
+      }
+
+      .c-pnc-breadcrumb__item:not(:first-of-type)::before {
+        position: relative;
+        content: "";
+        display: inline-block;
+        width: .5em;
+        height: .5em;
+        border-right: 1px solid #8d99a5;
+        border-top: 1px solid #8d99a5;
+        transform: rotate(45deg)
+      }
+
+      .c-pnc-breadcrumb__item:last-of-type {
+        pointer-events: none
+      }
+
+      .c-pnc-backButton {
+        color: #1976d2;
+        font-size: 1.125rem
+      }
+
+      .c-pnc-heading--primary {
+        color: #354052;
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.2
+      }
+
+      .c-pnc-heading--primary .c-pnc-heading__btn {
+        margin-top: .25rem
+      }
+
+      .c-pnc-modal {
+        display: none;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 9999
+      }
+
+      .c-pnc-modal__dialog {
+        height: 100%;
+        width: 100%
+      }
+
+      .c-pnc-modal__content {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+        padding: 1.5rem 0 .75rem 1.5rem;
+        width: 100%
+      }
+
+      .c-pnc-modal__header {
+        display: inline-flex;
+        justify-content: space-between;
+        padding-right: 1.5rem
+      }
+
+      .c-pnc-modal__tit {
+        color: #2c394a;
+        font-size: 1.125rem;
+        font-weight: 600
+      }
+
+      .c-pnc-modal__close {
+        background-color: rgba(0, 0, 0, 0);
+        height: 1.5rem;
+        width: 1.5rem
+      }
+
+      .c-pnc-modal__body {
+        flex: 1;
+        margin-right: .5rem;
+        margin-top: 1rem;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        padding-right: .5rem;
+        scroll-behavior: smooth;
+        scrollbar-color: #ddd #fff;
+        scrollbar-gutter: stable;
+        scrollbar-width: thin
+      }
+
+      .c-pnc-modal__body::-webkit-scrollbar {
+        width: .5rem
+      }
+
+      .c-pnc-modal__body::-webkit-scrollbar-thumb {
+        background-color: #ddd;
+        border-radius: .5rem
+      }
+
+      .c-pnc-modal__visor {
+        height: 100%;
+        width: 100%
+      }
+
+      .c-pnc-modal__img {
+        object-fit: contain
+      }
+
+      .c-pnc-modal__footer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5rem;
+        padding-right: 1.5rem;
+        margin-left: -0.5rem;
+        margin-right: -0.5rem
+      }
+
+      .c-pnc-modal__footer>* {
+        flex-grow: 1;
+        margin: 0 .5rem 1rem
+      }
+
+      .c-pnc-modal--visor .c-pnc-modal__body {
+        margin-right: 0;
+        overflow: hidden;
+        padding-right: 1.5rem
+      }
+
+      .c-pnc-modal--lightBox .c-pnc-modal__body {
+        align-items: center;
+        display: flex;
+        justify-content: center
+      }
+
+      @media screen and (min-width: 48em) {
+        .c-pnc-modal__dialog {
+          display: flex;
+          justify-content: center;
+          pointer-events: none
+        }
+
+        .c-pnc-modal__header {
+          padding-right: 1.5rem
+        }
+
+        .c-pnc-modal__content {
+          padding-left: 2rem;
+          pointer-events: auto
+        }
+
+        .c-pnc-modal__body {
+          margin-right: 1rem
+        }
+
+        .c-pnc-modal__footer {
+          flex-direction: row-reverse;
+          flex-wrap: wrap;
+          padding-right: 2rem
+        }
+
+        .c-pnc-modal__footer>* {
+          flex-grow: 0
+        }
+
+        .c-pnc-modal--visor .c-pnc-modal__body {
+          padding-right: 2rem
+        }
+      }
+
+      @media screen and (min-width: 64em) {
+        .c-pnc-modal__dialog {
+          align-items: center
+        }
+
+        .c-pnc-modal__content {
+          border-radius: 8px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+          height: auto;
+          max-height: 37.5rem;
+          max-width: 45rem
+        }
+
+        .c-pnc-modal__img {
+          max-width: 60rem
+        }
+
+        .c-pnc-modal--tiny .c-pnc-modal__content {
+          max-width: 22.5rem
+        }
+
+        .c-pnc-modal--small .c-pnc-modal__content {
+          max-width: 30rem
+        }
+
+        .c-pnc-modal--reduced .c-pnc-modal__content {
+          max-width: 35rem
+        }
+
+        .c-pnc-modal--full .c-pnc-modal__content {
+          height: 100%;
+          max-width: 60rem
+        }
+
+        .c-pnc-modal--lightBox .c-pnc-modal__content {
+          max-height: none;
+          max-width: none;
+          width: auto
+        }
+      }
+
+      .modal-backdrop {
+        background-color: rgba(0, 0, 0, .3);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 1040
+      }
+
+      .u-hidden {
+        display: none
+      }
+
+      @media(min-width: 48em) {
+        .u-hidden\@md {
+          display: none
+        }
+      }
+
+      @media(min-width: 64em) {
+        .u-hidden\@lg {
+          display: none
+        }
+      }
+
+      .u-block {
+        display: block
+      }
+
+      @media(min-width: 48em) {
+        .u-block\@md {
+          display: block
+        }
+      }
+
+      @media(min-width: 64em) {
+        .u-block\@lg {
+          display: block
+        }
+      }
+
+      [data-temp-modal] iframe {
+        border: 0
+      }
+
+      [data-temp-modal] .c-pnc-modal__close {
+        background-color: rgba(0, 0, 0, 0)
+      }
+
+      [data-temp-modal] button {
+        border: 0;
+        cursor: pointer
+      }
+
+      [data-temp-modal] .c-pnc-modal__tit {
+        color: #2c394a;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0;
+        margin-top: 0
+      }
+
+      [data-temp-modal] .c-pnc-btn {
+        color: #fff;
+        font-size: .875rem;
+        font-weight: 600;
+        line-height: 2.5rem
+      }
+
+      [data-temp-breadcrumb] .c-pnc-breadcrumb__list {
+        list-style: none;
+        margin-bottom: 0;
+        padding-left: 0
+      }
+
+      [data-temp-breadcrumb] .c-pnc-breadcrumb__item {
+        line-height: 1;
+        margin-bottom: 0
+      }
+
+      /*# sourceMappingURL=css.css.map */
+
+
+      body {
+        padding: 2rem;
+      }
+
+      button {
+        margin: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="c-pnc-btn c-pnc-btn--primary" type="button">
+      <span class="c-pnc-btn__txt">Action</span>
+    </button>
+
+    <button class="c-pnc-btn c-pnc-btn--secondary" type="button"><span class="c-pnc-btn__txt">Action</span></button>
+    <button class="c-pnc-btn c-pnc-btn--tertiary" type="button"><span class="c-pnc-btn__txt">Action</span></button>
+    <button class="c-pnc-btn c-pnc-btn--primary c-pnc-btn--icon" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+      <span class="c-pnc-btn__txt">Action</span>
+    </button>
+    <button class="c-pnc-btn c-pnc-btn--primary c-pnc-btn--iconOnly" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+    </button>
+
+    <button class="c-pnc-btn c-pnc-btn--secondary c-pnc-btn--icon c-pnc-btn--iconRight" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+      <span class="c-pnc-btn__txt">Action</span>
+      </span>
+    </button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <button class="c-pnc-btn c-pnc-btn--primary c-pnc-btn--sm" type="button">
+      <span class="c-pnc-btn__txt">Action</span>
+    </button>
+
+    <button class="c-pnc-btn c-pnc-btn--secondary c-pnc-btn--sm" type="button"><span
+        class="c-pnc-btn__txt">Action</span></button>
+    <button class="c-pnc-btn c-pnc-btn--tertiary c-pnc-btn--sm" type="button"><span
+        class="c-pnc-btn__txt">Action</span></button>
+    <button class="c-pnc-btn c-pnc-btn--primary c-pnc-btn--icon c-pnc-btn--sm" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+      <span class="c-pnc-btn__txt">Action</span>
+    </button>
+    <button class="c-pnc-btn c-pnc-btn--primary c-pnc-btn--iconOnly c-pnc-btn--sm" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+    </button>
+
+    <button class="c-pnc-btn c-pnc-btn--secondary c-pnc-btn--icon c-pnc-btn--iconRight c-pnc-btn--sm" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+      <span class="c-pnc-btn__txt">Action</span>
+      </span>
+    </button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <button disabled class="c-pnc-btn c-pnc-btn--primary" type="button">
+      <span class="c-pnc-btn__txt">Action</span>
+    </button>
+
+    <button disabled class="c-pnc-btn c-pnc-btn--secondary" type="button"><span
+        class="c-pnc-btn__txt">Action</span></button>
+    <button disabled class="c-pnc-btn c-pnc-btn--tertiary" type="button"><span
+        class="c-pnc-btn__txt">Action</span></button>
+    <button disabled class="c-pnc-btn c-pnc-btn--primary c-pnc-btn--icon" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+      <span class="c-pnc-btn__txt">Action</span>
+    </button>
+    <button disabled class="c-pnc-btn c-pnc-btn--primary c-pnc-btn--iconOnly" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+    </button>
+
+    <button disabled class="c-pnc-btn c-pnc-btn--secondary c-pnc-btn--icon c-pnc-btn--iconRight" type="button">
+      <span class="c-pnc-btn__icon">
+        <svg class="o-icon o-icon--white" viewBox="0 0 24 24">
+          <path
+            d="m19.69 10.025-5.003-4.679c-.412-.413-.896-.481-1.31-.069v3.155l-.23-.002C8.094 8.43 4 12.386 4 17.267c0 1.7.781 1.081 1.105.488 1.533-2.8 4.572-4.71 8.08-4.71l.192.001v3.087c.413.413.948.364 1.31.069l5.003-4.68a1.06 1.06 0 0 0 0-1.497Z" />
+        </svg>
+      </span>
+      <span class="c-pnc-btn__txt">Action</span>
+      </span>
+    </button>
+
+  </body>
+
+</html>
